@@ -27,6 +27,20 @@ describe "SQL Lexer", ->
       ["EOF", "", 1]
     ]
 
+  it "eats select queries with cast", ->
+    tokens = lexer.tokenize("select * from my_table where foo::int > 2")
+    tokens.should.eql [
+      ["SELECT", "select", 1]
+      ["STAR", "*", 1]
+      ["FROM", "from", 1]
+      ["LITERAL", "my_table", 1]
+      ["WHERE", "where", 1]
+      ["LITERAL", "foo::int", 1]
+      ["OPERATOR", ">", 1]
+      ["NUMBER", "2", 1]
+      ["EOF", "", 1]
+    ]
+
 
   it "eats sub selects", ->
     tokens = lexer.tokenize("select * from (select * from my_table) t")
