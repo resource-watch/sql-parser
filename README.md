@@ -4,6 +4,10 @@ SQL Parser
 SQL Parser is a lexer, grammar and parser for SQL written in JS. Currently it is only capable of parsing fairly basic SELECT queries but full SQL support will hopefully come in time. See the specs for examples of currently supported queries.
 
 
+```
+Added - in LITERAL Regex
+```
+
 Installation
 ----------
 
