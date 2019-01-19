@@ -46,7 +46,7 @@ exports.LiteralValue = class LiteralValue
     if @value2
       @nested = true
       @values = @value.values
-      @values.push(value2)
+      @values.push(@value2)
     else
       @nested = false
       @values = [@value]
