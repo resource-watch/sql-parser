@@ -35,7 +35,9 @@ describe "SQL Lexer", ->
       ["FROM", "from", 1]
       ["LITERAL", "my_table", 1]
       ["WHERE", "where", 1]
-      ["LITERAL", "foo::int", 1]
+      ["LITERAL", "foo", 1]
+      ["CAST", "::", 1]
+      ["LITERAL", "int", 1]
       ["OPERATOR", ">", 1]
       ["NUMBER", "2", 1]
       ["EOF", "", 1]
@@ -75,5 +77,33 @@ describe "SQL Lexer", ->
       [ 'LITERAL', 'b', 1 ]
       [ 'DOT', '.', 1 ]
       [ 'LITERAL', 'id', 1 ]
+      ["EOF", "", 1]
+    ]
+
+  it "eats like", ->
+    tokens = lexer.tokenize("select * from a where a like 'b'")
+    tokens.should.eql [
+      ["SELECT", "select", 1]
+      ["STAR", "*", 1]
+      ["FROM", "from", 1]
+      [ 'LITERAL', 'a', 1 ]
+      ["WHERE", "where", 1]
+      ["LITERAL", "a", 1]
+      ["OPERATOR", "like", 1]
+      ["STRING", "b", 1]
+      ["EOF", "", 1]
+    ]
+
+  it "eats not like", ->
+    tokens = lexer.tokenize("select * from a where a not like 'b'")
+    tokens.should.eql [
+      ["SELECT", "select", 1]
+      ["STAR", "*", 1]
+      ["FROM", "from", 1]
+      [ 'LITERAL', 'a', 1 ]
+      ["WHERE", "where", 1]
+      ["LITERAL", "a", 1]
+      ["OPERATOR", "not like", 1]
+      ["STRING", "b", 1]
       ["EOF", "", 1]
     ]
