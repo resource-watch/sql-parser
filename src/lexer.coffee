@@ -16,6 +16,7 @@ class Lexer
                        @operatorToken() or
                        @mathToken() or
                        @dotToken() or
+                       @castToken() or
                        @conditionalToken() or
                        @betweenToken() or
                        @subSelectOpToken() or
@@ -94,6 +95,7 @@ class Lexer
     @tokenizeFromWord('FIRST')
 
   dotToken: -> @tokenizeFromWord('DOT', '.')
+  castToken: -> @tokenizeFromWord('CAST', '::')
   operatorToken:    -> @tokenizeFromList('OPERATOR', SQL_OPERATORS)
   mathToken:        ->
     @tokenizeFromList('MATH', MATH) or
@@ -151,7 +153,8 @@ class Lexer
   STAR                = /^\*/
   SEPARATOR           = /^,/
   WHITESPACE          = /^[ \n\r]+/
-  LITERAL             = /^`?([a-z0-9_\-\[\]\.-][a-z0-9_:\-\[\]\.-]{0,})`?/i
+  LITERAL             = /^`?([a-z_][a-z0-9_\-\[\]-]{0,})`?/i
+  #  LITERAL             = /^`?([a-z0-9_\-\[\]\.-]([a-z0-9_\-\[\]\.-]|::){0,})`?/i
   PARAMETER           = /^\$[0-9]+/
   NUMBER              = /^[0-9]+(\.[0-9]+)?/
   STRING              = /^'([^\\']*(?:\\.[^\\']*)*)'/
