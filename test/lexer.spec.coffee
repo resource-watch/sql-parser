@@ -79,3 +79,31 @@ describe "SQL Lexer", ->
       [ 'LITERAL', 'id', 1 ]
       ["EOF", "", 1]
     ]
+
+  it "eats like", ->
+    tokens = lexer.tokenize("select * from a where a like 'b'")
+    tokens.should.eql [
+      ["SELECT", "select", 1]
+      ["STAR", "*", 1]
+      ["FROM", "from", 1]
+      [ 'LITERAL', 'a', 1 ]
+      ["WHERE", "where", 1]
+      ["LITERAL", "a", 1]
+      ["OPERATOR", "like", 1]
+      ["STRING", "b", 1]
+      ["EOF", "", 1]
+    ]
+
+  it "eats not like", ->
+    tokens = lexer.tokenize("select * from a where a not like 'b'")
+    tokens.should.eql [
+      ["SELECT", "select", 1]
+      ["STAR", "*", 1]
+      ["FROM", "from", 1]
+      [ 'LITERAL', 'a', 1 ]
+      ["WHERE", "where", 1]
+      ["LITERAL", "a", 1]
+      ["OPERATOR", "not like", 1]
+      ["STRING", "b", 1]
+      ["EOF", "", 1]
+    ]

@@ -213,7 +213,7 @@
 
     SQL_SORT_ORDERS = ['ASC', 'DESC'];
 
-    SQL_OPERATORS = ['=', '!=', '>=', '>', '<=', '<>', '<', 'LIKE', 'IS NOT', 'IS'];
+    SQL_OPERATORS = ['=', '!=', '>=', '>', '<=', '<>', '<', 'LIKE', 'NOT LIKE', 'IS NOT', 'IS'];
 
     SUB_SELECT_OP = ['IN', 'NOT IN', 'ANY', 'ALL', 'SOME'];
 

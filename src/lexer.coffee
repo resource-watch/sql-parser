@@ -142,7 +142,7 @@ class Lexer
 
   SQL_FUNCTIONS       = ['AVG', 'COUNT', 'MIN', 'MAX', 'SUM']
   SQL_SORT_ORDERS     = ['ASC', 'DESC']
-  SQL_OPERATORS       = ['=', '!=', '>=', '>', '<=', '<>', '<', 'LIKE', 'IS NOT', 'IS']
+  SQL_OPERATORS       = ['=', '!=', '>=', '>', '<=', '<>', '<', 'LIKE', 'NOT LIKE', 'IS NOT', 'IS']
   SUB_SELECT_OP       = ['IN', 'NOT IN', 'ANY', 'ALL', 'SOME']
   SUB_SELECT_UNARY_OP = ['EXISTS']
   SQL_CONDITIONALS    = ['AND', 'OR']
@@ -154,7 +154,6 @@ class Lexer
   SEPARATOR           = /^,/
   WHITESPACE          = /^[ \n\r]+/
   LITERAL             = /^`?([a-z_][a-z0-9_\-\[\]-]{0,})`?/i
-  #  LITERAL             = /^`?([a-z0-9_\-\[\]\.-]([a-z0-9_\-\[\]\.-]|::){0,})`?/i
   PARAMETER           = /^\$[0-9]+/
   NUMBER              = /^[0-9]+(\.[0-9]+)?/
   STRING              = /^'([^\\']*(?:\\.[^\\']*)*)'/
