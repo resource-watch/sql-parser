@@ -1,5 +1,7 @@
-SQL Parser
-==========
+SQL Parser - RW edition
+=======================
+
+[![Build Status](https://travis-ci.org/resource-watch/sql-parser.svg?branch=master)](https://travis-ci.org/resource-watch/sql-parser)
 
 SQL Parser is a lexer, grammar and parser for SQL written in JS. Currently it is only capable of parsing fairly basic SELECT queries but full SQL support will hopefully come in time. See the specs for examples of currently supported queries.
 
@@ -61,6 +63,8 @@ The parser only currently supports SELECT queries but is able to produce a Selec
 
 Credits
 -------
+
+This repo is a for of [Forward's SQL Parser](https://github.com/forward/sql-parser), kudos to them for most of the work.
 
 A lot of the boilerplate and compilation code in this project is borrowed from the CoffeeScript project as it was the best example of a project using JISON that I could find. Thanks.
 

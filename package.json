@@ -1,7 +1,7 @@
 {
-  "name": "sql-parser",
-  "description": "Lexer and Parser for SQL Syntax",
-  "version": "0.5.0",
+  "name": "rw-sql-parser",
+  "description": "Lexer and Parser for SQL Syntax - Resource Watch edition",
+  "version": "1.0.0",
   "scripts": {
     "test": "./node_modules/.bin/cake build && ./node_modules/.bin/mocha --require should --require coffee-script/register \"test/**/*.coffee\""
   },
@@ -9,6 +9,15 @@
     "name": "Andy Kent",
     "email": "andy@forward.co.uk"
   },
+  "contributors": [
+    {
+      "name": "Raul Requero"
+    },
+    {
+      "name": "Tiago Garcia",
+      "url": "https://github.com/tiagojsag"
+    }
+  ],
   "directories": {
     "lib": "./lib"
   },
@@ -24,6 +33,6 @@
   ],
   "repository": {
     "type": "git",
-    "url": "http://github.com/forward/sql-parser.git"
+    "url": "http://github.com/resource-watch/sql-parser.git"
   }
 }
