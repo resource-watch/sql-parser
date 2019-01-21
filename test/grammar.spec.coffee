@@ -229,6 +229,12 @@ describe "SQL Grammar", ->
         FROM `my_table`.win:length(123)
       """
 
+    it "supports table name with slash without quotes", ->
+      parse("SELECT * FROM ft:table/name").toString().should.eql """
+      SELECT *
+        FROM `ft:table/name`
+      """
+
     it "parses sub selects", ->
       parse("select * from (select * from my_table)").toString().should.eql """
       SELECT *
