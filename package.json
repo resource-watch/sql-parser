@@ -14,6 +14,12 @@
       "name": "Raul Requero"
     },
     {
+      "name": "Sergio Gordillo"
+    },
+    {
+      "name": "Enrique Cornejo"
+    },
+    {
       "name": "Tiago Garcia",
       "url": "https://github.com/tiagojsag"
     }
@@ -21,6 +27,7 @@
   "directories": {
     "lib": "./lib"
   },
+  "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "jison": "0.4.18",
